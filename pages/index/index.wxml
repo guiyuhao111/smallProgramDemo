@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <image class='mainImage' src='http://localhost:8080/head.jpg'></image>
+  <view  class='applyInfo'>
+    <view>
+      <text id='applyPostName'  style=" word-break:break-all">原料油采购总监</text>
+    </view>
+    <view>
+      <text>联系人:</text><text id=' contactPerson'  style=" word-break:break-all">陈老师</text>
+    </view>
+  </view>
+  <view class='cont-box'>
+      <view class='li-wrap'>
+        <input id='applyUserName' placeholder='请输入你的姓名' focus='true'></input>
+      </view>
+      <view class='li-wrap'>
+        <input id='applyUserPhone' placeholder='请输入你的手机号' type='number' maxlength='11'></input>
+      </view>
+      <view class='li-wrap'>
+        <input id='applyUserPhone' placeholder='请输入你的邮箱'></input>
+      </view>
+      <view class='li-wrap'>
+        <textarea id='applyUserResume' placeholder='填写你的个人简历'></textarea>
+      </view>
+  </view>
+  <button class='qd-btn' catchtap='sendUserApplyInfo'>提交</button>
+</view>
