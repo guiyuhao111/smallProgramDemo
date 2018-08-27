@@ -1,8 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/apply/apply",
-    "demo"
+    "pages/apply/apply"
   ],
   "window": {
     "backgroundTextStyle": "light",

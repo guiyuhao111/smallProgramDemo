@@ -2,8 +2,9 @@
   <image class='headImg' src='{{ serverUrl }}/static/list-bg.jpg'></image>
 </view>
 <view class='search'>
-  <input id="searchInput" placeholder='请输入标题'>
+  <input class='searchInput' placeholder='请输入你的标题' placeholder-style='font-size:0.8rem'>
   </input>
+    <!-- <text style='display:{{ placeholderStyle }};'>情输入你的标题</text> -->
   <button class='search-button'>搜索</button>
 </view>
 <view class="navicat">

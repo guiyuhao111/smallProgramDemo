@@ -6,7 +6,21 @@ Page({
   data: {
     currentNav:"",
     serverUrl:app.data.serverUrl,
-    searchPlacehodler:"搜索"
+    searchInputFontSize:"0%",
+    placeholderStyle:"inline",
+  },
+  inputText:function(){
+    this.setData({
+      searchInputFontSize:"1rem",
+      placeholderStyle:"none",
+    })
+    console.log(11)
+  },
+  lostFocus:function(){
+    this.setData({
+      searchInputFontSize: "0%",
+      placeholderStyle: "inline",
+    })
   },
   chooseWages:function(event){
     var dataset = event.currentTarget.dataset;
