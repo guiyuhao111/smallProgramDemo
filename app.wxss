@@ -6,9 +6,12 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  background: #f7f8fa;
+  /* background: #f7f8fa; */
 }
-
+page{
+  background: #f7f7f7;
+  font-family: 微软雅黑, "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+}
 input{
   background: #fff;
   margin-top: 0.5em;
@@ -34,7 +37,6 @@ textarea{
   color: #999999;
   height: 5em;
   text-align: start;
-  font-family: 微软雅黑, "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
 }
 
 input{

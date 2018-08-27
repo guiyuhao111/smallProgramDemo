@@ -1,0 +1,6 @@
+<view class='search'>
+  <view class='searchItem'>
+    <!-- <image src='https://localhost/static/search.png' style='width:1em;height:1em;'/> -->
+    <input placeholder='请输入订单号'></input>
+  </view>
+</view>

@@ -1,27 +1,154 @@
-<!--index.wxml-->
-<view class="container">
-  <image class='mainImage' src='http://localhost:8080/head.jpg'></image>
-  <view  class='applyInfo'>
-    <view>
-      <text id='applyPostName'  style=" word-break:break-all">原料油采购总监</text>
+<view>
+  <image class='headImg' src='{{ serverUrl }}/static/list-bg.jpg'></image>
+</view>
+<view class='search'>
+  <input id="searchInput" placeholder='请输入标题'>
+  </input>
+  <button class='search-button'>搜索</button>
+</view>
+<view class="navicat">
+  <block wx:if="{{ currentNav==1 }}">
+    <view class="nav on" catchtap='chooseWages' data-current='1'>
+      <text>10-30W</text>
     </view>
-    <view>
-      <text>联系人:</text><text id=' contactPerson'  style=" word-break:break-all">陈老师</text>
+  </block>
+  <block wx:else>
+    <view class="nav off" catchtap='chooseWages' data-current='1'>
+      <text>10-30W</text>
+    </view>
+  </block>
+  <block wx:if="{{ currentNav==2 }}">
+    <view class="nav on" catchtap='chooseWages' data-current='2'>
+      <text>30-50W</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="nav off" catchtap='chooseWages' data-current='2'>
+      <text>30-50W</text>
+    </view>
+  </block>
+  <block wx:if="{{ currentNav==3 }}">
+    <view class="nav on" catchtap='chooseWages' data-current='3'>
+      <text>50W以上</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="nav off" catchtap='chooseWages' data-current='3'>
+      <text>50W以上</text>
+    </view>
+  </block>
+  <block wx:if="{{ currentNav==4 }}">
+    <view class="nav on" catchtap='chooseWages' data-current='4'>
+      <text>面议</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="nav off" catchtap='chooseWages' data-current='4'>
+      <text>面议</text>
+    </view>
+  </block>
+</view>
+<view class='orderList'>
+  <view class='orderInfo'>
+    <view class='txt'>
+      海曙区政协主席毕东华一行调研农合联（供销社）工作
+    </view>
+    <view class='info'>
+      策划丨执行丨促进
+    </view>
+    <view class='name'>
+      联 系 人：严老师
+    </view>
+    <view class='price'>
+      15-30W
+    </view>
+    <view class='date'>
+      2017-09-08
     </view>
   </view>
-  <view class='cont-box'>
-      <view class='li-wrap'>
-        <input id='applyUserName' placeholder='请输入你的姓名' focus='true'></input>
-      </view>
-      <view class='li-wrap'>
-        <input id='applyUserPhone' placeholder='请输入你的手机号' type='number' maxlength='11'></input>
-      </view>
-      <view class='li-wrap'>
-        <input id='applyUserPhone' placeholder='请输入你的邮箱'></input>
-      </view>
-      <view class='li-wrap'>
-        <textarea id='applyUserResume' placeholder='填写你的个人简历'></textarea>
-      </view>
+  <view class='orderInfo'>
+    <view class='txt'>
+      海曙区政协主席毕东华一行调研农合联（供销社）工作
+    </view>
+    <view class='info'>
+      策划丨执行丨促进
+    </view>
+    <view class='name'>
+      联 系 人：严老师
+    </view>
+    <view class='price'>
+      15-30W
+    </view>
+    <view class='date'>
+      2017-09-08
+    </view>
   </view>
-  <button class='qd-btn' catchtap='sendUserApplyInfo'>提交</button>
+  <view class='orderInfo'>
+    <view class='txt'>
+      海曙区政协主席毕东华一行调研农合联（供销社）工作
+    </view>
+    <view class='info'>
+      策划丨执行丨促进
+    </view>
+    <view class='name'>
+      联 系 人：严老师
+    </view>
+    <view class='price'>
+      15-30W
+    </view>
+    <view class='date'>
+      2017-09-08
+    </view>
+  </view>
+  <view class='orderInfo'>
+    <view class='txt'>
+      海曙区政协主席毕东华一行调研农合联（供销社）工作
+    </view>
+    <view class='info'>
+      策划丨执行丨促进
+    </view>
+    <view class='name'>
+      联 系 人：严老师
+    </view>
+    <view class='price'>
+      15-30W
+    </view>
+    <view class='date'>
+      2017-09-08
+    </view>
+  </view>
+  <view class='orderInfo'>
+    <view class='txt'>
+      海曙区政协主席毕东华一行调研农合联（供销社）工作
+    </view>
+    <view class='info'>
+      策划丨执行丨促进
+    </view>
+    <view class='name'>
+      联 系 人：严老师
+    </view>
+    <view class='price'>
+      15-30W
+    </view>
+    <view class='date'>
+      2017-09-08
+    </view>
+  </view>
+  <view class='orderInfo'>
+    <view class='txt'>
+      海曙区政协主席毕东华一行调研农合联（供销社）工作
+    </view>
+    <view class='info'>
+      策划丨执行丨促进
+    </view>
+    <view class='name'>
+      联 系 人：严老师
+    </view>
+    <view class='price'>
+      15-30W
+    </view>
+    <view class='date'>
+      2017-09-08
+    </view>
+  </view>
 </view>

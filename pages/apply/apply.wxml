@@ -1,0 +1,26 @@
+<view class="container">
+  <image class='mainImage' src='{{ headImg }}'></image>
+  <view  class='applyInfo'>
+    <view>
+      <text>感兴趣的岗位:</text><text id='applyPostName'  style=" word-break:break-all">{{ postName }}</text>
+    </view>
+    <view>
+      <text>猎头顾问:</text><text id=' contactPerson'  style=" word-break:break-all">{{ headhuntingName }}</text>
+    </view>
+  </view>
+  <view class='cont-box'>
+      <view class='li-wrap'>
+        <input id='applyUserName' placeholder='请输入你的姓名' focus='true' bindinput='getUserName'></input>
+      </view>
+      <view class='li-wrap'>
+        <input id='applyUserPhone' placeholder='请输入你的手机号' type='number' maxlength='11' bindinput='getUserPhone'></input>
+      </view>
+      <view class='li-wrap'>
+        <input id='applyUserEmail' placeholder='请输入你的邮箱' bindinput='getUserEmail'></input>
+      </view>
+      <view class='li-wrap'>
+        <textarea id='applyUserResume' placeholder='填写你的个人简历' bindinput='getUserResume'></textarea>
+      </view>
+  </view>
+  <button class='qd-btn' catchtap='sendUserApplyInfo'>提交</button>
+</view>

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wxf4bfc49af331a2c5",
-	"projectname": "demo",
+	"appid": "wxcf4e5483d69c4cfb",
+	"projectname": "nblt",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
