@@ -1,21 +1,22 @@
 <view>
-  <image class='headImg' src='{{ serverUrl }}/static/list-bg.jpg'></image>
+  <image class='headImg' src='{{ serverUrl }}static/list-bg.jpg'></image>
 </view>
 <view class='search'>
-  <input class='searchInput' placeholder='请输入你的标题' placeholder-style='font-size:0.8rem'>
+  <input  class='searchInput' placeholder='请输入你的标题' bindinput='getSearchTitle'  placeholder-class='searchPlaceholder' bindfocus='searchFocus' bindblur='searchBlur'>
   </input>
-    <!-- <text style='display:{{ placeholderStyle }};'>情输入你的标题</text> -->
-  <button class='search-button'>搜索</button>
+  <!-- <image style='display:{{ seacrhImageStyle }}' class='search-image' src='{{ serverUrl }}/static/search.png'>
+  </image> -->
+  <button class='search-button' hover-class='btn-hover' bindtap='searchPost'>搜索</button>
 </view>
 <view class="navicat">
   <block wx:if="{{ currentNav==1 }}">
     <view class="nav on" catchtap='chooseWages' data-current='1'>
-      <text>10-30W</text>
+      <text>30W以下</text>
     </view>
   </block>
   <block wx:else>
     <view class="nav off" catchtap='chooseWages' data-current='1'>
-      <text>10-30W</text>
+      <text>30W以下</text>
     </view>
   </block>
   <block wx:if="{{ currentNav==2 }}">
@@ -49,107 +50,26 @@
     </view>
   </block>
 </view>
-<view class='orderList'>
-  <view class='orderInfo'>
+<view wx:for="{{ dataList }}" class='orderList'>
+  <view class='orderInfo' catchtap='goToDetails' data-postId='{{ item.id }}' data-ltId='{{ item.LtId }}' data-txt='{{ item.Gwmc }}' data-NxS='{{ item.NxS }}' data-NxE='{{ item.NxE }}' data-date='{{ item.PubTime }}' data-ltname='{{ item.Ltname }}' data-gwzz='{{ item.Gwzz }}' data-rzzg='{{ item.Rzzg }}'>
     <view class='txt'>
-      海曙区政协主席毕东华一行调研农合联（供销社）工作
-    </view>
-    <view class='info'>
-      策划丨执行丨促进
+      {{ item.Gwmc }}
     </view>
     <view class='name'>
-      联 系 人：严老师
+      联系人:{{ item.Ltname }}
     </view>
-    <view class='price'>
-      15-30W
-    </view>
+    <block wx:if="{{ currentNav==4 }}">
+      <view class='price'>
+        面议
+      </view>
+    </block>
+    <block wx:else>
+      <view class='price'>
+        {{ item.NxS }}-{{ item.NxE }}W
+      </view>
+    </block>
     <view class='date'>
-      2017-09-08
-    </view>
-  </view>
-  <view class='orderInfo'>
-    <view class='txt'>
-      海曙区政协主席毕东华一行调研农合联（供销社）工作
-    </view>
-    <view class='info'>
-      策划丨执行丨促进
-    </view>
-    <view class='name'>
-      联 系 人：严老师
-    </view>
-    <view class='price'>
-      15-30W
-    </view>
-    <view class='date'>
-      2017-09-08
-    </view>
-  </view>
-  <view class='orderInfo'>
-    <view class='txt'>
-      海曙区政协主席毕东华一行调研农合联（供销社）工作
-    </view>
-    <view class='info'>
-      策划丨执行丨促进
-    </view>
-    <view class='name'>
-      联 系 人：严老师
-    </view>
-    <view class='price'>
-      15-30W
-    </view>
-    <view class='date'>
-      2017-09-08
-    </view>
-  </view>
-  <view class='orderInfo'>
-    <view class='txt'>
-      海曙区政协主席毕东华一行调研农合联（供销社）工作
-    </view>
-    <view class='info'>
-      策划丨执行丨促进
-    </view>
-    <view class='name'>
-      联 系 人：严老师
-    </view>
-    <view class='price'>
-      15-30W
-    </view>
-    <view class='date'>
-      2017-09-08
-    </view>
-  </view>
-  <view class='orderInfo'>
-    <view class='txt'>
-      海曙区政协主席毕东华一行调研农合联（供销社）工作
-    </view>
-    <view class='info'>
-      策划丨执行丨促进
-    </view>
-    <view class='name'>
-      联 系 人：严老师
-    </view>
-    <view class='price'>
-      15-30W
-    </view>
-    <view class='date'>
-      2017-09-08
-    </view>
-  </view>
-  <view class='orderInfo'>
-    <view class='txt'>
-      海曙区政协主席毕东华一行调研农合联（供销社）工作
-    </view>
-    <view class='info'>
-      策划丨执行丨促进
-    </view>
-    <view class='name'>
-      联 系 人：严老师
-    </view>
-    <view class='price'>
-      15-30W
-    </view>
-    <view class='date'>
-      2017-09-08
+      {{ item.PubTime }}
     </view>
   </view>
 </view>

@@ -1,4 +1,5 @@
 /*app.wxss*/
+
 .container {
   height: 100%;
   display: flex;
@@ -8,50 +9,172 @@
   box-sizing: border-box;
   /* background: #f7f8fa; */
 }
-page{
+
+page {
   background: #f7f7f7;
   font-family: 微软雅黑, "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
 }
-input{
+
+input {
   background: #fff;
   margin-top: 0.5em;
   border: 1px solid #e2e2e2;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0.5em;
   padding: 0.5rem 1rem;
-  box-sizing:border-box;
+  box-sizing: border-box;
   font: 400 1em Arial;
-  color: #999999;
+  color: #999;
   width: 100%;
   text-align: start;
 }
-textarea{
+
+textarea {
   background: #fff;
   margin-top: 0.5em;
   border: 1px solid #e2e2e2;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0.5em;
   padding: 0.5em 1em;
-  box-sizing:border-box;
+  box-sizing: border-box;
   font: 400 1em Arial;
-  color: #999999;
+  color: #999;
   height: 5em;
   text-align: start;
 }
 
-input{
-  height: 2.5em;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+input {
+  height: 2.5rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
-.qd-btn{
+
+.qd-btn {
   background: #ff6005;
   width: 75%;
   margin: 1rem auto;
-  padding: 0.5rem 0rem;
+  /* padding: 0.5rem 0.5rem; */
   font-size: 1rem;
   text-align: center;
   border-radius: 5rem;
   -webkit-border-radius: 5rem;
   color: #f7f8fa;
   font-weight: 0.2em;
+  line-height: 2.5rem;
+  height: 2.5rem;
+}
+
+.orderInfo {
+  position: relative;
+  padding: 0.5rem 25% 0.5rem 0.5rem;
+  background: #fff;
+  margin-bottom: 0.35rem;
+  /* 如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 "border-box"。这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。 */
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.orderInfo .txt {
+  font-size: 1.0rem;
+  line-height: 1.0rem;
+  /* 规定段落中的文本不进行换行： */
+  white-space: nowrap;
+  /* 性规定当内容溢出元素框时发生的事情。*//* hidden:内容会被修剪，并且其余内容是不可见的。 */
+  overflow: hidden;
+  /* text-overflow 属性规定当文本溢出包含元素时发生的事情。 *//* ellipsis	显示省略符号来代表被修剪的文本。 */
+  text-overflow: ellipsis;
+}
+
+.orderInfo .info {
+  color: #999;
+  font-size: 0.8rem;
+  line-height: 0.65rem;
+  padding-top: 0.65rem;
+}
+
+.orderInfo .price {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  color: #ff6005;
+  font-size: 1rem;
+}
+
+.orderInfo .name {
+  color: #454545;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  padding-top: 0.8rem;
+}
+
+.orderInfo .date {
+  color: #999;
+  font-size: 0.8rem;
+  line-height: 0.65rem;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+}
+
+.float-wrap {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #fff;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+}
+.cont-box .li-wrap input {
+    background: #fff;
+    font-size: 1.2rem;
+    color: #999999;
+    border: 1px solid #e2e2e2;
+    width: 100%;
+    height: 3rem;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    line-height: 20px;
+}
+
+.cont-box .li-wrap textarea {
+    /* background: #fff; */
+    line-height: 20px;
+    font-size: 1rem;
+    color: #999999;
+    border: 1px solid #e2e2e2;
+    width: 100%;
+    resize: none;
+    height:5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+}
+.cont-box{
+  /* border: 1px solid red; */
+}
+.cont-box .li-wrap {
+    margin: 1rem;
+    /* margin-left: -8rem;
+    margin-right: -8rem; */
+    position: relative;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+.float-box1, .float-box2 {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
 }

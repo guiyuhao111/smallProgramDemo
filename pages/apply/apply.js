@@ -97,7 +97,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        var code = res.code;
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxcf4e5483d69c4cfb&secret=65579fc25a2283be7842b5b23c09ee56&js_code=' + code + '&grant_type=authorization_code',
+          data: {},
+          header: {
+            'content-type': 'application/json'
+          },
+          success: res => {
+            //返回openid
+            var openid = res.data.openid;
+            wx.request({
+              url: app.data.serverUrl + "getUserInfo",
+              data: {
+                openId: openid
+              },
+              success: res => {
+                if (res.data.length >= 1) {
+                  var userInfo = res.data[0];
+                  this.setData({
+                    userName: userInfo.Name,
+                    userPhone: userInfo.Mobile,
+                    userEmail: userInfo.Email,
+                    userResume: userInfo.Grjj
+                  })
+                } else {}
+              }
+            })
+          }
+        })
+      }
+    })
     var url = util.getCurrentPageUrlWithArgs();
+    url = "pages/apply/apply?postId=2&postName=软件研发&headhuntingName=桂预豪";
     //此处设置的本地测试的url
     if (url.indexOf("?") > 0) {
       this.data.urlMap = util.getUrlParamToMap(url);
@@ -105,7 +140,7 @@ Page({
         postName: this.data.urlMap.get("postName"),
         headhuntingName: this.data.urlMap.get("headhuntingName")
       })
-    }else{
+    } else {
       wx.showModal({
         title: '提示',
         content: "未知的请求",
@@ -124,6 +159,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    /**
+     * 根据openId获取用户信息
+     */
 
   },
 

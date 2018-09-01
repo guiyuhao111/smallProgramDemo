@@ -1,12 +1,31 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/apply/apply"
+    "pages/apply/apply",
+    "pages/details/details",
+    "pages/center/center"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "宁波猎头",
     "navigationBarTextStyle": "white"
+  }
+  ,
+  "tabBar": {
+    "color": "#454545",
+    "borderStyle": "#e8e8e8",
+    "selectedColor": "#f00",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "image/index.png",
+      "selectedIconPath": "image/indexSelect.png"
+    },{
+      "pagePath": "pages/center/center",
+      "text": "个人中心",
+      "iconPath": "image/center.png",
+      "selectedIconPath": "image/centerSelect.png"
+    }]
   }
 }

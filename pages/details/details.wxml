@@ -1,0 +1,104 @@
+<view class='body'>
+  <view class='head-wrap' style='padding: 0.9rem 25% 0.9rem 0.5rem;'>
+    <view class='txt'>
+      {{ txt }}
+    </view>
+    <view class='name'>
+      {{ ltName }}
+    </view>
+    <block wx:if="{{ currentNav==4 }}">
+      <view class='price'>
+        面议
+      </view>
+    </block>
+    <block wx:else>
+      <view class='price'>
+        {{ NxS }}-{{ NxE }}W
+      </view>
+    </block>
+    <view class='date'>
+      {{ date }}
+    </view>
+  </view>
+  <view class='info-wrap' style="background: #fff;margin-bottom: 0.25rem;">
+    <view class='info-box' style="border-bottom:none;padding: 0px;">
+      <view class='img-box'>
+        <image src='{{ serverUrl }}getHeadhuntingImageBycmsSystem?url={{ pictureUrl }}{{ ltPicPath }}' class='contactImg'></image>
+      </view>
+      <view class='txt'>
+        <view class='name'>{{ ltName }}
+          <text style='color: #999;font-size: 12px;padding-left: 0.75rem'>联系人</text>
+        </view>
+        <view class='job'>
+          {{ ltIntroduce }}
+        </view>
+        <text class='consult'>我要咨询</text>
+      </view>
+    </view>
+  </view>
+  <view class='des'>
+    <text class='title-min'>\r 岗位职责\n</text>
+    <text>{{ gwzz }}</text>
+    <view class='line'></view>
+    <text class='title-min'>\r 任职资格\n</text>
+    <text>{{ rzzg }}</text>
+  </view>
+  <text class='title-min'>\r职位推荐</text>
+  <view class='orderList' wx:for='{{ recommendPostInfoList }}'>
+    <view class='orderInfo' catchtap='goToDetails' data-postId='{{ item.id }}' data-ltId='{{ item.LtId }}' data-txt='{{ item.Gwmc }}' data-NxS='{{ item.NxS }}' data-NxE='{{ item.NxE }}' data-date='{{ item.PubTime }}' data-ltname='{{ item.Ltname }}' data-gwzz='{{ item.Gwzz }}'
+      data-rzzg='{{ item.Rzzg }}'>
+      <view class='txt'>
+        {{ item.Gwmc }}
+      </view>
+      <view class='name'>
+        联系人:{{ item.Ltname }}
+      </view>
+      <block wx:if="{{ currentNav==4 }}">
+        <view class='price'>
+          面议
+        </view>
+      </block>
+      <block wx:else>
+        <view class='price'>
+          {{ item.NxS }}-{{ item.NxE }}W
+        </view>
+      </block>
+      <view class='date'>
+        {{ item.PubTime }}
+      </view>
+    </view>
+  </view>
+  <view class='more'>更多》</view>
+  <view class='ewm-box'>
+    <image src='{{ serverUrl}}static/ewm.jpg'></image>
+    <text>扫一扫 关注我们</text>
+  </view>
+  <button class='button' bindtap='openFloatSwrap'>我要应聘</button>
+
+  <view class='float-box2' style='display:{{ floatWrapDisplay }};'>
+    <view class='float-wrap'>
+      <view style='background: #ff6005;padding-left: 1rem; line-height: 1.5rem;height: 1.5rem; font-size: 0.8rem;color: #fff;'>
+        <text>联系我们</text>
+        <text bindtap='closeFloatWrap' style="float: right; cursor: pointer; font-size: 1.2rem;" class="close">\r × \r </text>
+      </view>
+
+      <view class='cont-box'>
+        <view class='li-wrap'>
+          <input type='text' placeholder='请输入您的姓名' bindinput='getUserName' value='{{ userName }}'></input>
+        </view>
+        <view class='li-wrap'>
+          <input type='text' placeholder='请输入您的电话' bindinput='getUserPhone' value='{{ userPhone }}'></input>
+        </view>
+        <view class='li-wrap'>
+          <input type='text' placeholder='请输入您的邮箱' bindinput='getUserEmail' value='{{ userEmail }}'></input>
+        </view>
+        <view class='li-wrap'>
+          <textarea placeholder='请输入个人简介' bindinput='getUserResume' value='{{ userResume }}'></textarea>
+        </view>
+        <view class='qd-btn' bindtap='comfirm'>
+          确定
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

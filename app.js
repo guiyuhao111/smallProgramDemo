@@ -1,11 +1,10 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
@@ -19,8 +18,8 @@ App({
           },
           success: res => {
             //返回openid
-            var openid = res.data.openid
-            this.data.openId=openid;
+            var openid = res.data.openid;
+            this.data.openId = openid;
           }
         })
       }
@@ -49,9 +48,11 @@ App({
   globalData: {
     userInfo: null
   },
-  data:{
-   // serverUrl:"https://ltxcxapi.zxtop.cn/",
-   serverUrl:"https://localhost/",
-    openId:""
+  data: {
+    serverUrl:"https://ltxcxapi.zxtop.cn/",
+    // serverUrl: "https://localhost/",
+    // serverUrl:"",
+    pictureUrl: "http://lt.zxtop.cn/UploadFile/",
+    openId: ""
   }
 })
