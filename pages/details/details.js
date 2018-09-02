@@ -27,7 +27,18 @@ Page({
     userName: "",
     userPhone: "",
     userEmail: "",
-    userResume: ""
+    userResume: "",
+    ltTel:""
+  },
+  makePhone:function(){
+      wx.makePhoneCall({
+        phoneNumber: this.data.ltTel,
+      })
+  },
+  showMorePost:function(){
+    wx.navigateBack({
+      
+    })
   },
   comfirm: function () {
     
@@ -70,7 +81,6 @@ Page({
           this.setData({
             floatWrapDisplay: "none"
           })
-          console.log(res);
           //成功
           wx.showToast({
             title: '成功',
@@ -162,9 +172,11 @@ Page({
       },
       success: res => {
         var ltInfo = res.data.data;
+        console.log(ltInfo);
         this.setData({
           ltIntroduce: ltInfo.Jj,
-          ltPicPath: ltInfo.PicPath
+          ltPicPath: ltInfo.PicPath,
+          ltTel:ltInfo.Tel
         })
       }
     })

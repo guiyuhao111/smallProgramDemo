@@ -32,14 +32,16 @@
         <view class='job'>
           {{ ltIntroduce }}
         </view>
-        <text class='consult'>我要咨询</text>
+        <text class='consult' bindtap='makePhone'>我要咨询</text>
       </view>
     </view>
   </view>
   <view class='des'>
+  <block wx:if='{{ gwzz!="" }}'>
     <text class='title-min'>\r 岗位职责\n</text>
     <text>{{ gwzz }}</text>
     <view class='line'></view>
+  </block>
     <text class='title-min'>\r 任职资格\n</text>
     <text>{{ rzzg }}</text>
   </view>
@@ -68,7 +70,7 @@
       </view>
     </view>
   </view>
-  <view class='more'>更多》</view>
+  <view class='more' bindtap='showMorePost'>更多》</view>
   <view class='ewm-box'>
     <image src='{{ serverUrl}}static/ewm.jpg'></image>
     <text>扫一扫 关注我们</text>
@@ -77,9 +79,9 @@
 
   <view class='float-box2' style='display:{{ floatWrapDisplay }};'>
     <view class='float-wrap'>
-      <view style='background: #ff6005;padding-left: 1rem; line-height: 1.5rem;height: 1.5rem; font-size: 0.8rem;color: #fff;'>
+      <view style='background: #ff6005;padding-left: 1rem; line-height: 2rem;height: 2rem; font-size: 1rem;color: #fff;'>
         <text>联系我们</text>
-        <text bindtap='closeFloatWrap' style="float: right; cursor: pointer; font-size: 1.2rem;" class="close">\r × \r </text>
+        <text bindtap='closeFloatWrap' style="float: right; cursor: pointer; font-size: 1.8rem;" class="close">\r × \r </text>
       </view>
 
       <view class='cont-box'>

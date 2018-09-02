@@ -141,9 +141,9 @@ input {
 }
 
 .cont-box .li-wrap textarea {
-    /* background: #fff; */
-    line-height: 20px;
-    font-size: 1rem;
+    background: #fff;
+    /* line-height: 20px; */
+    font-size: 1.2rem;
     color: #999999;
     border: 1px solid #e2e2e2;
     width: 100%;
