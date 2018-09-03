@@ -28,26 +28,28 @@ Page({
     userPhone: "",
     userEmail: "",
     userResume: "",
-    ltTel:""
+    ltTel: "",
+    hasCollectThisJob:false,
+    collectPic:"/image/sc2.png"
   },
-  makePhone:function(){
-      wx.makePhoneCall({
-        phoneNumber: this.data.ltTel,
-      })
-  },
-  showMorePost:function(){
-    wx.navigateBack({
-      
+  makePhone: function() {
+    wx.makePhoneCall({
+      phoneNumber: this.data.ltTel,
     })
   },
-  comfirm: function () {
-    
+  showMorePost: function() {
+    wx.navigateBack({
+
+    })
+  },
+  comfirm: function() {
+
     if (!this.data.userName) {
       wx.showModal({
         title: '提示',
         content: '请输入正确的用户姓名',
         confirmColor: "red",
-        showCancel:false
+        showCancel: false
       })
       return;
     }
@@ -76,7 +78,7 @@ Page({
       header: {
         "Content-Type": "application/json"
       },
-      success: res=> {
+      success: res => {
         if (res.data.state == 1) {
           this.setData({
             floatWrapDisplay: "none"
@@ -100,27 +102,27 @@ Page({
       }
     })
   },
-  getUserName: function (e) {
+  getUserName: function(e) {
     this.setData({
       userName: e.detail.value
     });
   },
-  getUserPhone: function (e) {
+  getUserPhone: function(e) {
     this.setData({
       userPhone: e.detail.value
     });
   },
-  getUserEmail: function (e) {
+  getUserEmail: function(e) {
     this.setData({
       userEmail: e.detail.value
     });
   },
-  getUserResume: function (e) {
+  getUserResume: function(e) {
     this.setData({
       userResume: e.detail.value
     });
   },
-  openFloatSwrap: function () {
+  openFloatSwrap: function() {
     //根据openId查询用户信息
     var openId = app.data.openId;
     var url = this.data.serverUrl + "getUserInfo";
@@ -138,7 +140,7 @@ Page({
             userEmail: userInfo.Email,
             userResume: userInfo.Grjj
           })
-        } else { }
+        } else {}
       }
     })
     this.setData({
@@ -148,7 +150,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var url = util.getCurrentPageUrlWithArgs();
     var paramsMap = util.getUrlParamToMap(url);
     //根据岗位Id去后端查询对应的岗位信息
@@ -165,6 +167,32 @@ Page({
       rzzg: paramsMap.get("Rzzg")
     })
     //根据ltId查询猎头相关信息
+    this.getHeadhuntingInfoById();
+    this.getRecommendPostInfoList();
+    this.hasUserCollectThisPost();
+  },
+  hasUserCollectThisPost:function(){
+    wx.request({
+      url: app.data.serverUrl +"hasUserCollectThisPost",
+      data:{
+        openId:app.data.openId,
+        postId:this.data.postId
+      },success:res=>{
+        if(res.data.data==1){
+          this.setData({
+            hasCollectThisJob:true,
+            collectPic:"/image/sc1.png"
+          })
+        }else{
+          this.setData({
+            collectPic: "/image/sc2.png",
+            hasCollectThisJob:false
+          })
+        }
+      }
+    })
+  },
+  getHeadhuntingInfoById:function(){
     wx.request({
       url: this.data.serverUrl + 'getHeadhuntingInfoById',
       data: {
@@ -172,14 +200,15 @@ Page({
       },
       success: res => {
         var ltInfo = res.data.data;
-        console.log(ltInfo);
         this.setData({
           ltIntroduce: ltInfo.Jj,
           ltPicPath: ltInfo.PicPath,
-          ltTel:ltInfo.Tel
+          ltTel: ltInfo.Tel
         })
       }
     })
+  },
+  getRecommendPostInfoList:function(){
     wx.request({
       url: this.data.serverUrl + 'getRecommendPostInfoList',
       data: {
@@ -193,7 +222,7 @@ Page({
       }
     })
   },
-  goToDetails: function (e) {
+  goToDetails: function(e) {
     var dataset = e.currentTarget.dataset;
     var postId = dataset.postid;
     var txt = dataset.txt;
@@ -214,54 +243,93 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
-  closeFloatWrap:function(){
+  closeFloatWrap: function() {
     this.setData({
-      floatWrapDisplay:"none"
+      floatWrapDisplay: "none"
+    })
+  },
+  collectThisJob: function() {
+    wx.request({
+      url: app.data.serverUrl + "collectThisJob",
+      data: {
+        postId: this.data.postId,
+        openId: app.data.openId,
+        state: this.data.hasCollectThisJob
+      },
+      success: res => {
+        if (res.data.state == 1) {
+          var title="收藏成功";
+          var hasCollectThisJob = this.data.hasCollectThisJob;
+          var collectPic = hasCollectThisJob ? "/image/sc2.png" :"/image/sc1.png";
+          //如果之前已经收藏了则取消收藏
+          if (hasCollectThisJob){
+            title="取消成功";
+          }
+          wx.showToast({
+            title: title,
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+          this.setData({
+            collectPic: collectPic,
+            hasCollectThisJob: !hasCollectThisJob
+          })
+        } else {
+          //失败
+          wx.showModal({
+            title: '提示',
+            content: res.data.message,
+            confirmColor: "red",
+            showCancel: false
+          })
+        }
+      }
     })
   }
 })

@@ -1,38 +1,52 @@
-
-.mainImage {
-  width: 100%;
-  height: 100px;
+.head-img .userImage {
+  display: block;
+  border: 5px solid #fc9144;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  margin: 2rem auto 2rem auto;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
 }
 
-.applyInfo view text {
-  color: black;
-  font-size: 1em;
+.head-img {
+  overflow: hidden;
+  background: #fd7d1e;
+  background: -webkit-linear-gradient(to bottom, #fd7d1e, #ff6005);
+  background: linear-gradient(to bottom, #fd7d1e, #ff6005);
 }
 
-.applyInfo view {
-  float: left;
-  padding: 0.5em;
+.head-img .userName {
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  display: block;
+  position: relative;
+  top: -1.5rem;
 }
 
-.cont-box {
-  width: 100%;
-  height: 100%;
-}
-.container .qt-btn{
-  height: 1.0rem;
-  border: 1px solid gray;
-}
-
-.container .cont-box .li-wrap input{
-  height: 2.5rem;
-}
-
-.li-wrap picker {
-  text-align: left;
+.nav-wrap {
+  display: flex;
+  flex-direction: row;
   background: #fff;
-  padding: 0.5rem 1rem;
-  color: #999999;
-  border: 1px solid #e2e2e2;
-  border-radius: 0.5em;
 }
 
+.nav-wrap view {
+  border: 1px solid #eeeeee;
+  width: 50%;
+  text-align: center;
+  padding: 1rem;
+  border-right: 0px;
+}
+
+.nav-wrap image {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  border: 0;
+  vertical-align: middle;
+  width: 22px;
+  height: 22px;
+}
+.nav-wrap text{
+  font-size: 0.85rem;
+}

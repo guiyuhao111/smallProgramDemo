@@ -1,0 +1,38 @@
+
+.mainImage {
+  width: 100%;
+  height: 100px;
+}
+
+.applyInfo view text {
+  color: black;
+  font-size: 1em;
+}
+
+.applyInfo view {
+  float: left;
+  padding: 0.5em;
+}
+
+.cont-box {
+  width: 100%;
+  height: 100%;
+}
+.container .qt-btn{
+  height: 1.0rem;
+  border: 1px solid gray;
+}
+
+.container .cont-box .li-wrap input{
+  height: 2.5rem;
+}
+
+.li-wrap picker {
+  text-align: left;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  color: #999999;
+  border: 1px solid #e2e2e2;
+  border-radius: 0.5em;
+}
+

@@ -1,0 +1,21 @@
+<view class="container">
+  <image class='mainImage' src='{{ headImg }}'></image>
+  <view class='cont-box'>
+      <view class='li-wrap'>
+        <picker style='' bindchange='userTypeChanged' range='{{ userTypeArray }}' value='{{ index }}' range-key='name'>当前角色:{{ userTypeArray[index].name }}</picker>
+      </view>
+      <view class='li-wrap'>
+        <input id='applyUserName' placeholder='请输入你的姓名' focus='true' bindinput='getUserName' value='{{ userName }}'></input>
+      </view>
+      <view class='li-wrap'>
+        <input id='applyUserPhone' placeholder='请输入你的手机号' type='number' maxlength='11' bindinput='getUserPhone' value='{{ userPhone }}'></input>
+      </view>
+      <view class='li-wrap'>
+        <input id='applyUserEmail' placeholder='请输入你的邮箱' bindinput='getUserEmail' value='{{ userEmail }}'></input>
+      </view>
+      <view class='li-wrap' style=''>
+        <textarea id='applyUserResume' placeholder='填写你的个人简历' bindinput='getUserResume' value='{{ userResume }}'></textarea>
+      </view>
+  </view>
+  <button class='qd-btn' catchtap='updateUserInfo'>确定</button>
+</view>

@@ -1,0 +1,52 @@
+/* pages/resume/resume.wxss */
+.cont-box .li-item input,textarea{
+  flex: 1;
+  font-size: 0.9rem;
+  background: #fcfcfc;
+  border: 1px solid #eeeeee;
+  padding: 0.35rem 0.5rem;
+  color: #666;
+  border-radius: 0px;
+  display: inline-block;
+  width: 80%;
+  outline-width: 0px ;
+	box-shadow: none;
+}
+
+.li-item {
+  margin: 0.4rem 0.5rem;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.li-item text {
+  /* border: 1px solid red; */
+}
+
+.li-item .important {
+  color: red;
+  margin-left: 4px;
+  /* border: 1px solid red; */
+}
+
+.li-item .inputName {
+  display: inline-block;
+  /* border: 1px solid red; */
+  font-size: 0.9rem;
+  line-height: 3rem;
+  margin-right: 0.75rem;
+}
+.cont-box .li-item textarea{
+      flex: 1;
+    height: 5rem;
+    font-size: 0.9rem;
+    background: #fcfcfc;
+    border: 1px solid #eeeeee;
+    padding: 0.35rem 0.5rem;
+    color: #666;
+}
+page{
+  background: #fff;
+}

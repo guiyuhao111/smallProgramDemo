@@ -10,18 +10,25 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         var code = res.code;
-        wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxcf4e5483d69c4cfb&secret=65579fc25a2283be7842b5b23c09ee56&js_code=' + code + '&grant_type=authorization_code',
-          data: {},
-          header: {
-            'content-type': 'application/json'
-          },
-          success: res => {
-            //返回openid
-            var openid = res.data.openid;
-            this.data.openId = openid;
-          }
-        })
+        this.data.openId =  wx.getStorageSync('openid')
+        if(this.data.openId==""){
+          wx.request({
+            url: this.data.serverUrl + "getUserOpenId",
+            data: { code: code },
+            header: {
+              'content-type': 'application/json'
+            },
+            success: res => {
+              //返回openid
+              var openid = res.data.openid;
+              this.data.openId = openid;
+              wx.setStorageSync("openid",openid);
+            },
+            fail:res=>{
+              
+            }
+          })
+        }
       }
     })
     // 获取用户信息
@@ -49,8 +56,8 @@ App({
     userInfo: null
   },
   data: {
-    serverUrl:"https://ltxcxapi.zxtop.cn/",
-    // serverUrl: "https://localhost/",
+    //  serverUrl:"https://ltxcxapi.zxtop.cn/",
+    serverUrl: "https://localhost/",
     // serverUrl:"",
     pictureUrl: "http://lt.zxtop.cn/UploadFile/",
     openId: ""

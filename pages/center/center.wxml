@@ -1,21 +1,33 @@
-<view class="container">
-  <image class='mainImage' src='{{ headImg }}'></image>
-  <view class='cont-box'>
-      <view class='li-wrap'>
-        <picker style='' bindchange='userTypeChanged' range='{{ userTypeArray }}' value='{{ index }}' range-key='name'>当前角色:{{ userTypeArray[index].name }}</picker>
+<view class='gray'>
+  <view class='content'>
+    <view class='head-img'>
+      <!-- <image src='{{ headImg }}'>
+
+      </image> -->
+      <open-data class="userImage" type="userAvatarUrl"></open-data>
+<open-data class="userName" type="userNickName"></open-data>
+      <!-- <text> 
+        周杰伦
+      </text> -->
+    </view>
+    <view class='nav-wrap'>
+      <view bindtap='toResumePage'>
+        <image src='{{ serverUrl }}/static/nav1.png'>
+
+        </image>
+        <text>
+            我的简历
+          </text>
       </view>
-      <view class='li-wrap'>
-        <input id='applyUserName' placeholder='请输入你的姓名' focus='true' bindinput='getUserName' value='{{ userName }}'></input>
+      <view bindtap='toCollectPage'>
+        <image src='{{ serverUrl }}/static/nav2.png'>
+
+        </image>
+        <text>
+          我的收藏
+          </text>
       </view>
-      <view class='li-wrap'>
-        <input id='applyUserPhone' placeholder='请输入你的手机号' type='number' maxlength='11' bindinput='getUserPhone' value='{{ userPhone }}'></input>
-      </view>
-      <view class='li-wrap'>
-        <input id='applyUserEmail' placeholder='请输入你的邮箱' bindinput='getUserEmail' value='{{ userEmail }}'></input>
-      </view>
-      <view class='li-wrap' style=''>
-        <textarea id='applyUserResume' placeholder='填写你的个人简历' bindinput='getUserResume' value='{{ userResume }}'></textarea>
-      </view>
+    </view>
+
   </view>
-  <button class='qd-btn' catchtap='updateUserInfo'>确定</button>
 </view>

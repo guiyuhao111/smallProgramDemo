@@ -1,0 +1,28 @@
+<view class='gray'>
+  <view class='content'>
+    <view wx:for="{{ dataList }}" class='orderList'>
+      <view class='orderInfo' catchtap='goToDetails' data-postId='{{ item.id }}' data-ltId='{{ item.LtId }}' data-txt='{{ item.Gwmc }}' data-NxS='{{ item.NxS }}' data-NxE='{{ item.NxE }}' data-date='{{ item.PubTime }}' data-ltname='{{ item.Ltname }}' data-gwzz='{{ item.Gwzz }}'
+        data-rzzg='{{ item.Rzzg }}'>
+        <view class='txt'>
+          {{ item.Gwmc }}
+        </view>
+        <view class='name'>
+          联系人:{{ item.Ltname }}
+        </view>
+        <block wx:if="{{ currentNav==4 }}">
+          <view class='price'>
+            面议
+          </view>
+        </block>
+        <block wx:else>
+          <view class='price'>
+            {{ item.NxS }}-{{ item.NxE }}W
+          </view>
+        </block>
+        <view class='date'>
+          {{ item.PubTime }}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
