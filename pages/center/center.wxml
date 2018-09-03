@@ -12,15 +12,23 @@
     </view>
     <view class='nav-wrap'>
       <view bindtap='toResumePage'>
-        <image src='{{ serverUrl }}/static/nav1.png'>
+        <image src='/image/nav1.png'>
 
         </image>
         <text>
             我的简历
           </text>
       </view>
-      <view bindtap='toCollectPage'>
-        <image src='{{ serverUrl }}/static/nav2.png'>
+      <view bindtap='toCollectPage' data-status='1'>
+        <image src='/image/nav2.png'>
+
+        </image>
+        <text>
+            申请记录
+          </text>
+      </view>
+      <view bindtap='toCollectPage' data-status='2'>
+        <image src='/image/nav3.png'>
 
         </image>
         <text>

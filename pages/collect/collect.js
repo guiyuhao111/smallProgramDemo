@@ -11,7 +11,14 @@ Page({
     serverUrl:app.data.serverUrl
   },
   getCollectPostListInfo: function () {
-    var url = this.data.serverUrl + "getCollectPostInfoList";
+    var requestParamsMap = util.getUrlParamToMap(util.getCurrentPageUrlWithArgs());
+    var status=requestParamsMap.get("status");
+    var url="";
+    if(status==1){
+       url = this.data.serverUrl + "getCollectPostInfoList";
+    }else{
+      url = this.data.serverUrl+"getAppliedPostInfoList";
+    }
     wx.request({
       url: url,
       data: {
@@ -19,7 +26,6 @@ Page({
       },
       success: result => {
         var dataList = result.data.data;
-        console.log(dataList);
         if (result.data.state == 1) {
           this.setData({
             dataList: dataList

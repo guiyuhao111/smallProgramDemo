@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/center/center",
     "pages/index/index",
     "pages/details/details",
     "pages/collect/collect",
-    "pages/center/center",
     "pages/resume/resume",
     "pages/apply/apply"
   ],

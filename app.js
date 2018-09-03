@@ -56,8 +56,8 @@ App({
     userInfo: null
   },
   data: {
-    //  serverUrl:"https://ltxcxapi.zxtop.cn/",
-    serverUrl: "https://localhost/",
+     serverUrl:"https://ltxcxapi.zxtop.cn/",
+    // serverUrl: "https://localhost/",
     // serverUrl:"",
     pictureUrl: "http://lt.zxtop.cn/UploadFile/",
     openId: ""

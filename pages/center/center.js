@@ -10,9 +10,10 @@ Page({
     headImg:app.data.serverUrl+"static/head-img.png",
     serverUrl: app.data.serverUrl,    
   },
-  toCollectPage:function(){
+  toCollectPage:function(e){
+    var status = e.currentTarget.dataset.status;
     wx.navigateTo({
-      url: "/pages/collect/collect",
+      url: "/pages/collect/collect?status="+status,
     })
   },
   toResumePage:function(){
