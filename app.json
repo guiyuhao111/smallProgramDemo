@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/center/center",
     "pages/index/index",
+    "pages/center/center",
     "pages/details/details",
     "pages/collect/collect",
     "pages/resume/resume",
@@ -9,7 +9,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000",
+    "navigationBarBackgroundColor": "#FF6050",
     "navigationBarTitleText": "宁波猎头",
     "navigationBarTextStyle": "white"
   },

@@ -80,7 +80,7 @@
     <text>扫一扫 关注我们</text>
   </view>
   <!-- <button class='button' bindtap='openFloatSwrap'>我要应聘</button> -->
-  <view class='button'>
+  <view class='button' style='position: fixed;bottom: 0;left: 0;width: 100%;'>
     <view class='applyThisJob' bindtap='openFloatSwrap'>我要应聘</view>
     <view class='collect' bindtap='collectThisJob'>
       <image src='{{ collectPic }}'>

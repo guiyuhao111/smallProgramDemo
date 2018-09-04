@@ -30,7 +30,7 @@ Page({
     userResume: "",
     ltTel: "",
     hasCollectThisJob:false,
-    collectPic:"/image/sc2.png"
+    collectPic:"/image/sc1.png"
   },
   makePhone: function() {
     wx.makePhoneCall({
@@ -181,11 +181,11 @@ Page({
         if(res.data.data==1){
           this.setData({
             hasCollectThisJob:true,
-            collectPic:"/image/sc1.png"
+            collectPic:"/image/sc2.png"
           })
         }else{
           this.setData({
-            collectPic: "/image/sc2.png",
+            collectPic: "/image/sc1.png",
             hasCollectThisJob:false
           })
         }
@@ -305,7 +305,7 @@ Page({
         if (res.data.state == 1) {
           var title="收藏成功";
           var hasCollectThisJob = this.data.hasCollectThisJob;
-          var collectPic = hasCollectThisJob ? "/image/sc2.png" :"/image/sc1.png";
+          var collectPic = hasCollectThisJob ? "/image/sc1.png" :"/image/sc2.png";
           //如果之前已经收藏了则取消收藏
           if (hasCollectThisJob){
             title="取消成功";

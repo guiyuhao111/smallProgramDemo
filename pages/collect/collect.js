@@ -8,16 +8,17 @@ Page({
    */
   data: {
     dataList:new Array(),
-    serverUrl:app.data.serverUrl
+    serverUrl:app.data.serverUrl,
+    status:-1,
   },
   getCollectPostListInfo: function () {
     var requestParamsMap = util.getUrlParamToMap(util.getCurrentPageUrlWithArgs());
     var status=requestParamsMap.get("status");
     var url="";
     if(status==1){
-       url = this.data.serverUrl + "getCollectPostInfoList";
+      url = this.data.serverUrl + "getAppliedPostInfoList"; 
     }else{
-      url = this.data.serverUrl+"getAppliedPostInfoList";
+      url = this.data.serverUrl + "getCollectPostInfoList";
     }
     wx.request({
       url: url,
@@ -26,6 +27,7 @@ Page({
       },
       success: result => {
         var dataList = result.data.data;
+        console.log();
         if (result.data.state == 1) {
           this.setData({
             dataList: dataList

@@ -1,5 +1,16 @@
 <view class='gray'>
   <view class='content'>
+  <view style='padding-bottom:0.8rem;padding-left:0.58rem;padding-top:0.8rem;font-size:0.8rem;background:#fff;border-left:0.3rem solid #FF6050;border-bottom:1px solid #eeeeee'>
+    岗位列表
+  </view>
+  <block wx:if='{{ dataList.length===0 }}'>
+  <view style='text-align:center;padding-top:3rem;'>
+    <text style='font-size:0.7rem;color:gray;'>
+        暂无记录
+      </text>
+  </view>
+  </block>
+  <block wx:else>
     <view wx:for="{{ dataList }}" class='orderList'>
       <view class='orderInfo' catchtap='goToDetails' data-postId='{{ item.id }}' data-ltId='{{ item.LtId }}' data-txt='{{ item.Gwmc }}' data-NxS='{{ item.NxS }}' data-NxE='{{ item.NxE }}' data-date='{{ item.PubTime }}' data-ltname='{{ item.Ltname }}' data-gwzz='{{ item.Gwzz }}'
         data-rzzg='{{ item.Rzzg }}'>
@@ -9,7 +20,7 @@
         <view class='name'>
           联系人:{{ item.Ltname }}
         </view>
-        <block wx:if="{{ currentNav==4 }}">
+        <block wx:if="{{ item.NxS==''&&item.NxE=='' }}">
           <view class='price'>
             面议
           </view>
@@ -24,5 +35,6 @@
         </view>
       </view>
     </view>
+  </block>
   </view>
 </view>
