@@ -7,15 +7,14 @@
       </view>
       <view class='li-item'>
         <view class='inputName'><text>电话</text><text class="important">*</text></view>
-        <input value='{{ userPhone }}'bindinput='getUserPhone' ></input>
+        <input type='number' maxlength='11' value='{{ userPhone }}'bindinput='getUserPhone' ></input>
       </view>
       <view class='li-item'>
         <view class='inputName'><text>邮箱</text><text class="important">*</text></view>
         <input value='{{ userEmail }}' bindinput='getUserEmail'></input>
       </view>
       <view class='li-item'>
-        <view class='inputName'><text>简介</text><text class="important">*</text></view>
-        <textarea value='{{ userResume }}' bindinput='getUserResume'></textarea>
+        <view class='inputName'><text>简介</text><text class="important" style='margin-left:0.7rem;'></text></view><textarea style='' value='{{ userResume }}' bindinput='getUserResume'></textarea>
       </view>
     </view>
     <view bindtap='saveUserInfo' class="qd-btn" style="border-radius: 5px;-webkit-border-radius: 5px;width: 90%;">保存</view>

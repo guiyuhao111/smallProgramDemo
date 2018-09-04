@@ -48,7 +48,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '请输入正确的用户姓名',
-        confirmColor: "red",
+        confirmColor: "green",
         showCancel: false
       })
       return;
@@ -58,7 +58,25 @@ Page({
       wx.showModal({
         title: '提示',
         content: '请输入正确的手机号',
-        confirmColor: "red",
+        confirmColor: "green",
+        showCancel: false
+      })
+      return;
+    }
+    if (!this.data.userEmail) {
+      wx.showModal({
+        title: '提示',
+        content: '请输入邮箱',
+        confirmColor: "green",
+        showCancel: false
+      })
+      return;
+    }
+    if (this.data.userEmail.indexOf('@') <= 0) {
+      wx.showModal({
+        title: '提示',
+        content: '请输入正确的邮箱格式',
+        confirmColor: "green",
         showCancel: false
       })
       return;

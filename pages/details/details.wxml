@@ -6,15 +6,22 @@
     <view class='name'>
       {{ ltName }}
     </view>
-    <block wx:if="{{ currentNav==4 }}">
+    <block wx:if="{{ item.NxS==''&&item.NxE =='' }}">
       <view class='price'>
         面议
       </view>
     </block>
     <block wx:else>
-      <view class='price'>
-        {{ NxS }}-{{ NxE }}W
-      </view>
+      <block wx:if='{{ item.NxS==item.NxE }}'>
+        <view class='price'>
+          {{ item.NxE }}W
+        </view>
+      </block>
+      <block wx:else>
+        <view class='price'>
+          {{ item.NxS }}-{{ item.NxE }}W
+        </view>
+      </block>
     </block>
     <view class='date'>
       {{ date }}

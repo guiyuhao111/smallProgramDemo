@@ -2,10 +2,8 @@
   <image class='headImg' src='{{ serverUrl }}static/list-bg.jpg'></image>
 </view>
 <view class='search'>
-  <input  class='searchInput' placeholder='请输入你的标题' bindinput='getSearchTitle'  placeholder-class='searchPlaceholder' bindfocus='searchFocus' bindblur='searchBlur'>
+  <input class='searchInput' placeholder='岗位搜索' bindinput='getSearchTitle' placeholder-class='searchPlaceholder' bindfocus='searchFocus' bindblur='searchBlur'>
   </input>
-  <!-- <image style='display:{{ seacrhImageStyle }}' class='search-image' src='{{ serverUrl }}/static/search.png'>
-  </image> -->
   <button class='search-button' hover-class='btn-hover' bindtap='searchPost'>搜索</button>
 </view>
 <view class="navicat">
@@ -51,22 +49,30 @@
   </block>
 </view>
 <view wx:for="{{ dataList }}" class='orderList'>
-  <view class='orderInfo' catchtap='goToDetails' data-postId='{{ item.id }}' data-ltId='{{ item.LtId }}' data-txt='{{ item.Gwmc }}' data-NxS='{{ item.NxS }}' data-NxE='{{ item.NxE }}' data-date='{{ item.PubTime }}' data-ltname='{{ item.Ltname }}' data-gwzz='{{ item.Gwzz }}' data-rzzg='{{ item.Rzzg }}'>
+  <view class='orderInfo' catchtap='goToDetails' data-postId='{{ item.id }}' data-ltId='{{ item.LtId }}' data-txt='{{ item.Gwmc }}' data-NxS='{{ item.NxS }}' data-NxE='{{ item.NxE }}' data-date='{{ item.PubTime }}' data-ltname='{{ item.Ltname }}' data-gwzz='{{ item.Gwzz }}'
+    data-rzzg='{{ item.Rzzg }}'>
     <view class='txt'>
       {{ item.Gwmc }}
     </view>
     <view class='name'>
       联系人:{{ item.Ltname }}
     </view>
-    <block wx:if="{{ currentNav==4 }}">
+    <block wx:if="{{ item.NxS==''&&item.NxE =='' }}">
       <view class='price'>
         面议
       </view>
     </block>
     <block wx:else>
-      <view class='price'>
-        {{ item.NxS }}-{{ item.NxE }}W
-      </view>
+      <block wx:if='{{ item.NxS==item.NxE }}'>
+        <view class='price'>
+          {{ item.NxE }}W
+        </view>
+      </block>
+      <block wx:else>
+        <view class='price'>
+          {{ item.NxS }}-{{ item.NxE }}W
+        </view>
+      </block>
     </block>
     <view class='date'>
       {{ item.PubTime }}

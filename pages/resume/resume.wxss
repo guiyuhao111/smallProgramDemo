@@ -29,6 +29,8 @@
   color: red;
   margin-left: 4px;
   /* border: 1px solid red; */
+  font-size: 1rem;
+  width: 1rem;
 }
 
 .li-item .inputName {
